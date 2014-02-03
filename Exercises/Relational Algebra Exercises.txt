@@ -1,0 +1,42 @@
+Relational Algebra Exercises Core Set
+Jan 21 2014
+
+\project_{name} (\select_{(gender='female') and (pizza=\project_{pizza}(\select_{pizzeria='Straw Hat}Serves))} (Person \join Eats))
+
+Q1
+\project_{pizza} (\select_{gender='female' and age>=20} Person \join Eats)
+
+Q2
+\project_{name} (
+(\select_{gender='female'} Person) 
+\join Eats 
+\join (\select_{pizzeria='Straw Hat'} Serves)
+)
+
+Q3
+\project_{pizzeria} (
+\select_{name='Amy' or name='Fay'} Eats
+\join
+\select_{price<10} Serves
+)
+
+Q4
+\project_{pizzeria} (
+(
+\project_{pizza}(\select_{name='Amy'} Eats)
+\intersect
+\project_{pizza}(\select_{name='Fay'} Eats)
+)
+\join
+\select_{price<10} Serves
+)
+
+Q5
+\project_{name}(
+Eats
+\join
+(\select_{pizzeria='Dominos'} Serves))
+\diff
+\project_{name}(
+\select_{pizzeria='Dominos'} Frequents
+)

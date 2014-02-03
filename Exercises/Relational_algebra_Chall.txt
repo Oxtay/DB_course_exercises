@@ -1,0 +1,16 @@
+Q1
+(\project_{pizza}(Serves)
+\diff
+\project_{pizza}(
+\select_{price>=10}Serves))
+\union
+(\project_{pizza}(Eats)
+\diff
+\project_{pizza}(\select_{age>=24}(Person \join Eats)))
+
+Q2
+Not complete yet:
+\rename_{age2}(\project_{age}(\project_{name}(\select_{pizza='mushroom'}Eats) \join Person))
+\join
+\rename_{age1}(\project_{age}(\project_{name}(\select_{pizza='mushroom'}Eats) \join Person))
+\diff
